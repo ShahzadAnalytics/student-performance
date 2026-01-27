@@ -26,7 +26,7 @@ def load_model():
         st.stop()  # Stop execution if model is missing
     
     with open(model_path, "rb") as file:
-        model = pickle.load(file)
+        model = joblib.load(file)
     return model
 
 model = load_model()
@@ -62,3 +62,4 @@ if st.button("Predict Performance"):
     except Exception as e:
         st.error("❌ Prediction failed")
         st.error(e)
+
