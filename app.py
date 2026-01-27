@@ -16,18 +16,13 @@ st.write("Enter student details to predict performance")
 
 # -----------------------------
 # Load the trained model
-# -----------------------------
 @st.cache_resource
 def load_model():
     model_path = os.path.join(os.path.dirname(__file__), "student_model.pkl")
-    
     if not os.path.exists(model_path):
         st.error(f"❌ Model file not found at {model_path}")
-        st.stop()  # Stop execution if model is missing
-    
-    with open(model_path, "rb") as file:
-        model = joblib.load(file)
-    return model
+        st.stop()
+    return joblib.load(model_path)  # ✅ correct usage
 
 model = load_model()
 
@@ -62,4 +57,5 @@ if st.button("Predict Performance"):
     except Exception as e:
         st.error("❌ Prediction failed")
         st.error(e)
+
 
