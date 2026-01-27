@@ -17,7 +17,7 @@ st.set_page_config(
 @st.cache_resource
 def load_model():
     model_path = os.path.join(os.path.dirname(__file__), "model.pkl")
-    with open(model_path, "rb") as file:
+    with open(model.pkl, "rb") as file:
         model = pickle.load(file)
     return model
 
@@ -72,3 +72,4 @@ if st.button("Predict Performance"):
     except Exception as e:
         st.error("❌ Prediction failed")
         st.error(e)
+
