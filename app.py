@@ -1,11 +1,11 @@
 import streamlit as st
-import pickle
-import os
 import numpy as np
+import pandas as pd
+import joblib
 
-# -----------------------------
-# Page configuration
-# -----------------------------
+# Load trained model
+
+model = joblib.load(open("student.pkl", "rb"))
 st.set_page_config(
     page_title="Student Performance Predictor",
     layout="centered"
@@ -57,5 +57,6 @@ if st.button("Predict Performance"):
     except Exception as e:
         st.error("❌ Prediction failed")
         st.error(e)
+
 
 
