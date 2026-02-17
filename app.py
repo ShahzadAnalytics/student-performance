@@ -5,7 +5,7 @@ import joblib
 
 # Load trained model
 
-model = joblib.load(open("student.pkl", "rb"))
+model = joblib.load(open("student_model.pkl", "rb"))
 st.set_page_config(
     page_title="Student Performance Predictor",
     layout="centered"
